@@ -7,3 +7,12 @@ try {
     console.error(error.message);
 }
 console.log("Finished");
+
+const content2 = "This is to \n asynchornus file";
+fs.writeFile("./Output/test-async.txt", content2, (error) => {
+    if(error) {
+        console.error(error.message);
+    } else {
+        console.log("File written asynchornusly");
+    }
+});

@@ -47,6 +47,17 @@ function initializeDirectory() {
             fs.writeFileSync(path.join(sourceDir, file), "")
         })
     }
+
+    if (!fs.existsSync(organizedDir)) {
+        fs.mkdirSync(organizedDir, { recursive: true });
+
+        Object.keys(categories).forEach(category => {
+            const categoryPath = path.join(organizedDir, category);
+            if(!fs.existsSync(categoryPath)) {
+                fs.mkdirSync(categoryPath);
+            }
+        })
+    }
 }
 
 initializeDirectory();
